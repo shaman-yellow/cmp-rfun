@@ -35,9 +35,13 @@ function source:complete(params, callback)
     end
   end
 
-  -- Get the directory of the current script and build the relative path
-  local script_dir = get_script_dir()
-  local filename = script_dir .. 'functions.txt'
+  if vim.g.cmp_rfun_file then
+    local filename = vim.g.cmp_rfun_file
+  else
+    -- Get the directory of the current script and build the relative path
+    local script_dir = get_script_dir()
+    local filename = script_dir .. 'functions.txt'
+  end
 
   -- Load external text
   for line in io.lines(filename) do
