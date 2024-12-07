@@ -26,9 +26,9 @@ function source:complete(params, callback)
   local function add_candidate(label)
     if not seen[label] then
       table.insert(candidates, {
-        label = label:gsub("()", ""),
+        label = label,
         kind = require('cmp.types').lsp.CompletionItemKind.Function,
-        insertText = string.format("%s($1)", label),
+        insertText = string.format("%s($1)", label:gsub("()", "")),
         insertTextFormat = require('cmp.types').lsp.InsertTextFormat.Snippet,
       })
       seen[label] = true
