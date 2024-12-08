@@ -28,7 +28,7 @@ function source:complete(params, callback)
       table.insert(candidates, {
         label = label,
         kind = require('cmp.types').lsp.CompletionItemKind.Function,
-        insertText = string.format("%s($1)", label:gsub("()", "")),
+        insertText = string.format("%s($1)", label),
         insertTextFormat = require('cmp.types').lsp.InsertTextFormat.Snippet,
       })
       seen[label] = true
