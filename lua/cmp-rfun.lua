@@ -56,7 +56,7 @@ function source:complete(params, callback)
 
   for _, line in ipairs(lines) do
     for package, func in gmatch(line, '([%w_]+)::([%w_]+)') do
-      local label = package .. '::' .. func .. '()'
+      local label = package .. '::' .. func
       add_candidate(label)
     end
   end
